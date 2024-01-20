@@ -16,3 +16,28 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+
+
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v2
+
+      - name: Configurer JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Compilation de l'application
+        run: |
+          ./mvnw clean install
+        shell: bash
+
+      - name: Archiver les artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: target/*.jar
