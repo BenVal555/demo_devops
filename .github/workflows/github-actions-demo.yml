@@ -33,7 +33,7 @@ jobs:
 
       - name: Compilation de l'application
         run: |
-          ./mvnw clean install
+          mvn clean install
         shell: bash
 
       - name: Archiver les artifacts
