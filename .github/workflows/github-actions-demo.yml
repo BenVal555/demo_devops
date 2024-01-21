@@ -45,8 +45,8 @@ jobs:
     needs: compile
 
     steps:
-      - name: Move to project directory
-        run: cd ${{ github.workspace }}
+      - name: List files in the project directory
+        run: ls -R ${{ github.workspace }}
 
       - name: Utiliser l'action Maven Dependency Tree Submission
         uses: advanced-security/maven-dependency-submission-action@v3.0.3
