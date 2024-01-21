@@ -45,11 +45,10 @@ jobs:
     needs: compile
 
     steps:
-      - name: Checkout du code
-        uses: actions/checkout@v2
-
       - name: Utiliser l'action Maven Dependency Tree Submission
         uses: advanced-security/maven-dependency-submission-action@v3.0.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           directory: ${{ github.workspace }}
+        env:
+          DEBUG: true
