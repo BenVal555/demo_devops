@@ -48,6 +48,10 @@ jobs:
       - name: Vérifier la valeur de github.workspace
         run: echo "La valeur de github.workspace est ${{ github.workspace }}"
 
+      - name: List files in the repository
+        run: ls ${{ github.workspace }}
+
+
       - name: Utiliser l'action Maven Dependency Tree Submission
         uses: advanced-security/maven-dependency-submission-action@v3.0.3
         with:
